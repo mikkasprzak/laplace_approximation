@@ -2,35 +2,102 @@ import numpy as np
 import math
 import pandas as pd
 
-"""
-Generating logistic regression data
-"""
-d=11 # change d accordingly
-num=10**6
-np.random.seed(56)
-df_x=np.random.multivariate_normal(np.zeros(d),np.identity(d),num)
-def stable_sigmoid(x):
-    if x >= 0:
-        z = math.exp(-x)
-        sig = 1 / (1 + z)
-        return sig
-    else:
-        z = math.exp(x)
-        sig = z / (1 + z)
-        return sig
-df_y=[]
-for i in range(num):
-    data_point=df_x[i]
-    np.random.seed(i)
-    m=np.random.binomial(1,stable_sigmoid(np.inner([1]*d,data_point)))
-    if m==0:
-        m=-1
-    df_y.append(m)
-df_x=pd.DataFrame(df_x)
-df_y=pd.DataFrame(df_y)
 
-df_x.to_csv('normal_data'+str(d)+'.csv',index=False,header=False)
-df_y.to_csv('logistic_data'+str(d)+'.csv',index=False,header=False)
+import numpy as np
+import math
+import pandas as pd
+
+"""
+Generating logistic regression data - zero parameter
+"""
+for d in range(1,10): # change d accordingly
+    num=10**6
+    np.random.seed(56)
+    df_x=np.random.multivariate_normal([0]*d,0.15/np.sqrt(d)*np.identity(d),num)
+    def stable_sigmoid(x):
+        if x >= 0:
+            z = math.exp(-x)
+            sig = 1 / (1 + z)
+            return sig
+        else:
+            z = math.exp(x)
+            sig = z / (1 + z)
+            return sig
+    df_y=[]
+    for i in range(num):
+        data_point=df_x[i]
+        np.random.seed(i)
+        m=np.random.binomial(1,stable_sigmoid(np.inner([0]*d,data_point)))
+        if m==0:
+            m=-1
+        df_y.append(m)
+    df_x=pd.DataFrame(df_x)
+    df_y=pd.DataFrame(df_y)
+
+    df_x.to_csv('normal_data_small'+str(d)+'.csv',index=False,header=False)
+    df_y.to_csv('logistic_data_zero'+str(d)+'.csv',index=False,header=False)
+
+
+"""
+Generating logistic regression data - medium-sized parameter
+"""
+for d in range(1,10): # change d accordingly
+    num=10**6
+    np.random.seed(56)
+    df_x=np.random.multivariate_normal([0]*d,0.15/np.sqrt(d)*np.identity(d),num)
+    def stable_sigmoid(x):
+        if x >= 0:
+            z = math.exp(-x)
+            sig = 1 / (1 + z)
+            return sig
+        else:
+            z = math.exp(x)
+            sig = z / (1 + z)
+            return sig
+    df_y=[]
+    for i in range(num):
+        data_point=df_x[i]
+        np.random.seed(i)
+        m=np.random.binomial(1,stable_sigmoid(np.inner([0.5]*d,data_point)))
+        if m==0:
+            m=-1
+        df_y.append(m)
+    df_x=pd.DataFrame(df_x)
+    df_y=pd.DataFrame(df_y)
+
+    # df_x.to_csv('normal_data_small'+str(d)+'.csv',index=False,header=False)
+    df_y.to_csv('logistic_data_medium'+str(d)+'.csv',index=False,header=False)
+
+"""
+Generating logistic regression data - medium-sized parameter
+"""
+for d in range(1,10): # change d accordingly
+    num=10**6
+    np.random.seed(56)
+    df_x=np.random.multivariate_normal([0]*d,0.15/np.sqrt(d)*np.identity(d),num)
+    def stable_sigmoid(x):
+        if x >= 0:
+            z = math.exp(-x)
+            sig = 1 / (1 + z)
+            return sig
+        else:
+            z = math.exp(x)
+            sig = z / (1 + z)
+            return sig
+    df_y=[]
+    for i in range(num):
+        data_point=df_x[i]
+        np.random.seed(i)
+        m=np.random.binomial(1,stable_sigmoid(np.inner([1]*d,data_point)))
+        if m==0:
+            m=-1
+        df_y.append(m)
+    df_x=pd.DataFrame(df_x)
+    df_y=pd.DataFrame(df_y)
+
+    # df_x.to_csv('normal_data_small'+str(d)+'.csv',index=False,header=False)
+    df_y.to_csv('logistic_data_large'+str(d)+'.csv',index=False,header=False)
+    
 
 """
 Generating exponential data
