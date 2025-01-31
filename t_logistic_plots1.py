@@ -124,48 +124,7 @@ plt.xscale('log',base=10)
 plt.legend(prop={'size':14})
 plt.savefig('w2_logistic_large.png',bbox_inches = 'tight', pad_inches = 0)
 
-'''
-Producing the plot of our W1 bound and the norm of the approximating mean - small parameter
-'''
-# df=pd.read_csv(r't_logistic_results_zero'+str(d)+'.csv')
-# df.drop(columns='Unnamed: 0', inplace=True)
-# r1=[]
-# r2=[]
-# for i in range(51):
-#     r1.append(eval(df['1'][i])[0])
-#     r2.append(eval(df['1'][i])[1])
-#
-# plt.clf()
-#
-# plt.plot(list(df['0']),r1, label='our bound on the 1-Wasserstein distance')
-# plt.plot(list(df['0']),r2, '--', label='norm of the approximating mean')
-# plt.xlabel('number of data points')
-# plt.yscale('log',base=10)
-# plt.xscale('log',base=10)
-# plt.legend(prop={'size':12})
-# plt.savefig('w1_logistic_zero.png',bbox_inches = 'tight', pad_inches = 0)
 
-
-'''
-Producing the plot of our W2 bound and the norm of the approximating covariance - small parameter
-'''
-# df=pd.read_csv(r't_logistic_results_zero'+str(d)+'.csv')
-# df.drop(columns='Unnamed: 0', inplace=True)
-# r1=[]
-# r2=[]
-# for i in range(51):
-#     r1.append(eval(df['1'][i])[2])
-#     r2.append(eval(df['1'][i])[3])
-#
-# plt.clf()
-#
-# plt.plot(list(df['0']),r1, label='our bound on the 2-norm of the \n difference of covariances')
-# plt.plot(list(df['0']),r2, '--', label='2-norm of the approximating covariance')
-# plt.xlabel('number of data points')
-# plt.yscale('log',base=10)
-# plt.xscale('log',base=10)
-# plt.legend(prop={'size':12})
-# plt.savefig('w2_logistic_zero.png',bbox_inches = 'tight', pad_inches = 0)
 
 
 
