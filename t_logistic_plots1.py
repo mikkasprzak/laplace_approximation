@@ -133,9 +133,5 @@ plt.savefig('w2_logistic_large.png',bbox_inches = 'tight', pad_inches = 0)
 
 
 
-d=5
-df=pd.read_csv(r't_logistic_results_large'+str(d)+'.csv')
-m=list(df['0'])
-df = pd.DataFrame(m)
-df.to_csv(r'logistic_indices5_large.csv',index=False)
+
 
