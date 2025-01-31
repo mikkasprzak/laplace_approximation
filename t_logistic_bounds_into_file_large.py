@@ -65,3 +65,10 @@ if __name__ == '__main__':
     df.to_csv('t_logistic_results_large'+str(d)+'.csv')
     end = time.time()
     print((end - start) / 60, " minutes")
+
+
+d=5
+df=pd.read_csv(r't_logistic_results_large'+str(d)+'.csv')
+m=list(df['0'])
+df = pd.DataFrame(m)
+df.to_csv(r'logistic_indices5_large.csv',index=False)
